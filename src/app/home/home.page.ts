@@ -58,7 +58,6 @@ export class HomePage {
 
   handleClickFilter(type: FilterStatus) {
     this.filter.set(type);
-    console.log('clicked', type);
   }
 
   handleSubmitAddTask(value: string) {
