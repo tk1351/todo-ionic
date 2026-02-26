@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="button-container">
+    @for (option of filterOptions; track option) {
+      <ion-button
+        type="button"
+        (click)="handleClickFilter(option)"
+        [color]="selectedFilter() === option ? 'primary' : 'medium'"
+        >{{ labelMap[option] }}</ion-button
+      >
+    }
+  </div>
+  <ul class="list">
+    @for (todo of todos(); track todo.id) {
+      <li class="listitem">
+        <span>{{ todo.title }}</span>
+        <ion-badge [class]="statusColorMap[todo.status]">{{
+          labelMap[todo.status]
+        }}</ion-badge>
+      </li>
+    }
+  </ul>
+</div>

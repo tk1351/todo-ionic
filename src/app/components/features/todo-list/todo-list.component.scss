@@ -1,0 +1,47 @@
+@use "../../../../theme/variables.scss" as *;
+
+.container {
+  margin-block-start: $spacing-s;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-block-start: $spacing-xxs;
+}
+
+.listitem {
+  border: 1px solid $color-slate-200;
+  border-radius: 8px;
+  padding: $spacing-xs;
+  box-shadow: $shadow-md;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.listitem:not(:first-child) {
+  margin-block-start: $spacing-xs;
+}
+
+.badge-in-progress {
+  --background: #{$color-blue-500};
+  --color: #{$color-white};
+}
+
+.badge-not-yet {
+  --background: #{$color-red-700};
+  --color: #{$color-white};
+}
+
+.badge-done {
+  --background: #{$color-gray-400};
+  --color: #{$color-white};
+}

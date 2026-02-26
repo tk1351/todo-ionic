@@ -12,4 +12,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true"> </ion-content>
+<ion-content [fullscreen]="true">
+  <main class="container">
+    <app-todo-input (addTask)="handleSubmitAddTask($event)"></app-todo-input>
+    <app-todo-list
+      [todos]="displayTodos()"
+      (clickFilter)="handleClickFilter($event)"
+    ></app-todo-list>
+  </main>
+</ion-content>

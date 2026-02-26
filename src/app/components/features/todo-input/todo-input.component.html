@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    aria-label="new task"
+    placeholder="Add a new task"
+    formControlName="task"
+    class="input"
+    (focus)="onFocus()"
+  />
+</form>
