@@ -1,3 +1,5 @@
+@use "../../../../theme/variables.scss" as *;
+
 ion-modal {
   --border-radius: 16px 16px 0 0;
   --backdrop-opacity: 0.4;
@@ -5,4 +7,14 @@ ion-modal {
 
 ion-modal::part(content) {
   box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.12);
+}
+
+ion-modal .container {
+  padding-block: $spacing-s;
+  padding-inline: $spacing-m;
+}
+
+.status-options > .radio-group-wrapper {
+  display: flex;
+  flex-direction: column;
 }

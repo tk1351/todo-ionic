@@ -6,6 +6,23 @@
   (didDismiss)="handleDismiss()"
 >
   <ng-template>
-    <p>{{ todo()?.title }}</p>
+    <div class="container">
+      <h3>Update Status</h3>
+      <p>{{ todo().title }}</p>
+      <div>
+        @for (status of statusOptions; track status) {
+          <label>
+            {{ statusLabelMap[status] }}
+            <input
+              type="radio"
+              name="status"
+              [value]="status"
+              [checked]="selectedStatus() === status"
+              (change)="handleUpdateStatus({ id: todo().id, status: status })"
+            />
+          </label>
+        }
+      </div>
+    </div>
   </ng-template>
 </ion-modal>

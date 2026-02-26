@@ -6,3 +6,8 @@ export type Todo = {
   title: string;
   status: Status;
 };
+
+export type UpdateStatusPayload = {
+  id: Todo['id'];
+  status: Status;
+};

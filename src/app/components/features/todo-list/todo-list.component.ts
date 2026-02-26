@@ -1,6 +1,10 @@
 import { Component, input, output, signal } from '@angular/core';
 import { FilterStatus, Status, Todo } from 'src/app/core/models/todo';
 import { IonBadge, IonButton } from '@ionic/angular/standalone';
+import {
+  FILTER_LABEL_MAP,
+  FILTER_OPTIONS,
+} from 'src/app/core/constants/todo.constants';
 
 @Component({
   selector: 'app-todo-list',
@@ -9,19 +13,13 @@ import { IonBadge, IonButton } from '@ionic/angular/standalone';
   imports: [IonBadge, IonButton],
 })
 export class TodoListComponent {
+  protected readonly filterOptions = FILTER_OPTIONS;
+  protected readonly labelMap = FILTER_LABEL_MAP;
+
   todos = input.required<Todo[]>();
   clickFilter = output<FilterStatus>();
   clickItem = output<Todo['id']>();
   selectedFilter = signal<FilterStatus>('ALL');
-
-  labelMap: Record<FilterStatus, string> = {
-    ALL: '全て',
-    NOT_YET: '未着手',
-    IN_PROGRESS: '進行中',
-    DONE: '完了',
-  };
-
-  filterOptions: FilterStatus[] = ['ALL', 'NOT_YET', 'IN_PROGRESS', 'DONE'];
 
   statusColorMap = {
     NOT_YET: 'badge-not-yet',

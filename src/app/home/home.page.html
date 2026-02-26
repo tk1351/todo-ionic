@@ -20,10 +20,12 @@
       (clickFilter)="handleClickFilter($event)"
       (clickItem)="handleClickItem($event)"
     ></app-todo-list>
+    @let todo = selectedTodo(); @if (todo) {
     <app-todo-modal
       [isOpen]="isModalOpen()"
-      [todo]="selectedTodo()"
+      [todo]="todo"
       (dismiss)="handleDismissModal()"
     ></app-todo-modal>
+    }
   </main>
 </ion-content>
