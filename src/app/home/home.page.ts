@@ -11,6 +11,7 @@ import { personCircleOutline } from 'ionicons/icons';
 import { TodoInputComponent } from '../components/features/todo-input/todo-input.component';
 import { TodoListComponent } from '../components/features/todo-list/todo-list.component';
 import { FilterStatus, Todo } from '../core/models/todo';
+import { TodoModalComponent } from '../components/features/todo-modal/todo-modal.component';
 
 @Component({
   standalone: true,
@@ -25,6 +26,7 @@ import { FilterStatus, Todo } from '../core/models/todo';
     IonIcon,
     TodoInputComponent,
     TodoListComponent,
+    TodoModalComponent,
   ],
 })
 export class HomePage {
@@ -44,6 +46,9 @@ export class HomePage {
 
   filter = signal<FilterStatus>('ALL');
 
+  isModalOpen = signal<boolean>(false);
+  selectedTodo = signal<Todo | null>(null);
+
   displayTodos = computed(() => {
     if (this.filter() === 'ALL') {
       return this.todos();
@@ -58,6 +63,16 @@ export class HomePage {
 
   handleClickFilter(type: FilterStatus) {
     this.filter.set(type);
+  }
+
+  handleClickItem(id: Todo['id']) {
+    this.selectedTodo.set(this.todos().find((todo) => todo.id === id) ?? null);
+    this.isModalOpen.set(true);
+  }
+
+  handleDismissModal() {
+    this.isModalOpen.set(false);
+    this.selectedTodo.set(null);
   }
 
   handleSubmitAddTask(value: string) {

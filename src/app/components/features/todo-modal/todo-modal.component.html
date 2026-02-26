@@ -1,0 +1,11 @@
+<ion-modal
+  [isOpen]="isOpen()"
+  [breakpoints]="[0, 0.5, 1]"
+  [initialBreakpoint]="0.5"
+  handleBehavior="cycle"
+  (didDismiss)="handleDismiss()"
+>
+  <ng-template>
+    <p>{{ todo()?.title }}</p>
+  </ng-template>
+</ion-modal>

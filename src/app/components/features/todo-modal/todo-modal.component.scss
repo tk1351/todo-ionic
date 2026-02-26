@@ -1,0 +1,8 @@
+ion-modal {
+  --border-radius: 16px 16px 0 0;
+  --backdrop-opacity: 0.4;
+}
+
+ion-modal::part(content) {
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.12);
+}

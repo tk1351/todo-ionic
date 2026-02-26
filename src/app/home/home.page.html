@@ -18,6 +18,12 @@
     <app-todo-list
       [todos]="displayTodos()"
       (clickFilter)="handleClickFilter($event)"
+      (clickItem)="handleClickItem($event)"
     ></app-todo-list>
+    <app-todo-modal
+      [isOpen]="isModalOpen()"
+      [todo]="selectedTodo()"
+      (dismiss)="handleDismissModal()"
+    ></app-todo-modal>
   </main>
 </ion-content>

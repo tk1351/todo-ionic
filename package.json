@@ -10,7 +10,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "fmt": "prettier -w src/"
+    "fmt": "prettier -w src/",
+    "check": "npm run fmt && npm run lint"
   },
   "private": true,
   "dependencies": {

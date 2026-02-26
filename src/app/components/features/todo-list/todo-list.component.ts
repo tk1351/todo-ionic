@@ -11,6 +11,7 @@ import { IonBadge, IonButton } from '@ionic/angular/standalone';
 export class TodoListComponent {
   todos = input.required<Todo[]>();
   clickFilter = output<FilterStatus>();
+  clickItem = output<Todo['id']>();
   selectedFilter = signal<FilterStatus>('ALL');
 
   labelMap: Record<FilterStatus, string> = {
@@ -33,5 +34,9 @@ export class TodoListComponent {
   handleClickFilter(type: FilterStatus) {
     this.selectedFilter.set(type);
     this.clickFilter.emit(type);
+  }
+
+  handleClickItem(id: Todo['id']) {
+    this.clickItem.emit(id);
   }
 }
